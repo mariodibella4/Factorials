@@ -29,7 +29,7 @@ public class FactorialsHandler {
             es.shutdown();
             es.awaitTermination(300, TimeUnit.MILLISECONDS);
             if (es.isShutdown())
-                return UpperEvenThread.outUpperEven.multiply(LowerEvenThread.outLowerEven);
+                return UpperEvenThread.getOutUpperEven().multiply(LowerEvenThread.getOutLowerEven());
             return null;
         } else {
             UpperOddThread upperOddThread = new UpperOddThread(n);
@@ -50,7 +50,7 @@ public class FactorialsHandler {
             es.shutdown();
             es.awaitTermination(300, TimeUnit.MILLISECONDS);
             if (es.isShutdown())
-                return UpperOddThread.outUpperOdd.multiply(LowerOddThread.outLowerOdd);
+                return UpperOddThread.getOutUpperOdd().multiply(LowerOddThread.getOutLowerOdd());
             return null;
         }
     }
@@ -60,13 +60,13 @@ public class FactorialsHandler {
             LowerEvenThread lowerEvenThread = new LowerEvenThread(n);
             upperEvenThread.calc();
             lowerEvenThread.calc();
-            System.out.println(UpperEvenThread.outUpperEven.multiply(LowerEvenThread.outLowerEven));
+            System.out.println(UpperEvenThread.getOutUpperEven().multiply(LowerEvenThread.getOutLowerEven()));
         }else{
             UpperOddThread upperOddThread = new UpperOddThread(n);
             LowerOddThread lowerOddThread = new LowerOddThread(n);
             upperOddThread.calc();
             lowerOddThread.calc();
-            System.out.println(UpperOddThread.outUpperOdd.multiply(LowerOddThread.outLowerOdd));
+            System.out.println(UpperOddThread.getOutUpperOdd().multiply(LowerOddThread.getOutLowerOdd()));
         }
     }
     public static boolean isItEven(long n){

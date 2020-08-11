@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 
 public class UpperEvenThread implements Calculate {
-    public static BigInteger outUpperEven;
+    private static BigInteger outUpperEven;
     public static BigInteger forRestriction;
     public UpperEvenThread(long n){
         outUpperEven = BigInteger.valueOf(n);
@@ -12,15 +12,9 @@ public class UpperEvenThread implements Calculate {
         for(BigInteger j=outUpperEven.subtract(BigInteger.ONE);j.compareTo(forRestriction)>0;j=j.subtract(BigInteger.ONE)){
             outUpperEven=outUpperEven.multiply(j);
         }
-
-        /*
-        for (long j = outUpperEven - 1; j > outUpperEven/2; j--) {
-            outUpperEven = outUpperEven * j;
-            System.out.println(outUpperEven);
-        }*/
     }
-    /*
-    public void run(){
-        this.calc();
-    }*/
+
+    public static BigInteger getOutUpperEven() {
+        return outUpperEven;
+    }
 }

@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 
 public class LowerOddThread implements Calculate {
-    public static BigInteger outLowerOdd;
+    private static BigInteger outLowerOdd;
     public LowerOddThread(long n) {
         outLowerOdd=BigInteger.valueOf((n+1)/2);
     }
@@ -11,5 +11,9 @@ public class LowerOddThread implements Calculate {
         for(BigInteger i=outLowerOdd.subtract(BigInteger.ONE);i.compareTo(BigInteger.ZERO)>0;i=i.subtract(BigInteger.ONE)){
             outLowerOdd=outLowerOdd.multiply(i);
         }
+    }
+
+    public static BigInteger getOutLowerOdd() {
+        return outLowerOdd;
     }
 }

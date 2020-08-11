@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 
 public class UpperOddThread implements Calculate{
-    public static BigInteger outUpperOdd;
+    private static BigInteger outUpperOdd;
     public static BigInteger forRestriction;
     public UpperOddThread(long n) {
         outUpperOdd = BigInteger.valueOf(n);
@@ -13,6 +13,10 @@ public class UpperOddThread implements Calculate{
         for(BigInteger j=outUpperOdd.subtract(BigInteger.ONE);j.compareTo(forRestriction)>0;j=j.subtract(BigInteger.ONE)){
             outUpperOdd=outUpperOdd.multiply(j);
         }
+    }
+
+    public static BigInteger getOutUpperOdd() {
+        return outUpperOdd;
     }
 }
 
